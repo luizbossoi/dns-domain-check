@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  webserver:
+    build: .docker.webserver/
+    container_name: php_web
+    volumes:
+      - ./www/:/var/www/html
+      - ./.docker.webserver/apache2.conf:/etc/apache2/apache2.conf
+    ports:
+      - "8080:80"
